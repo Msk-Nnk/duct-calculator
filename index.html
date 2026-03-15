@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <!-- iPhone Safari用 (Webクリップアイコン) -->
+    <!-- iPhone Safari用 (Webクリップアイコン) -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
 
     <!-- Android Chrome用 (ホーム画面ショートカット/PWAアイコン) -->
@@ -24,7 +24,7 @@
         }
         .canvas-container {
             position: relative;
-            height: 350px;
+            height: 300px;
             width: 100%;
             background: #0f172a;
         }
@@ -49,7 +49,7 @@
 
         <div class="p-4 space-y-5">
             
-            <!-- Fixed Visual Area (350px) -->
+            <!-- Fixed Visual Area (300px) -->
             <div class="canvas-container rounded-2xl shadow-inner overflow-hidden border border-slate-800">
                 <div class="absolute top-3 left-3 flex gap-2 z-10">
                     <span id="angle-display" class="text-[10px] font-black text-white bg-blue-600 px-3 py-1 rounded-full shadow-lg">---</span>
@@ -157,8 +157,8 @@
             const visualPipeL = Math.max(0, pipeL);
             const totalPathLength = s1 + visualPipeL + s2;
             
-            // Adjust margin to prevent overflow including duct diameter
-            const margin = 50;
+            // Margin adjustment for 300px height
+            const margin = 40;
             let scale;
             if (type === "90-90") {
                 scale = (h - (margin * 2)) / (totalPathLength + dia/2);
@@ -170,7 +170,7 @@
                 scale = Math.min(scaleX, scaleY);
             }
             
-            scale = Math.min(scale, 0.7);
+            scale = Math.min(scale, 0.65);
 
             const drawS1 = s1 * scale;
             const drawS2 = s2 * scale;
@@ -291,8 +291,8 @@
                     textY = (p1.y + p2.y) / 2;
                 } else {
                     const nx = sin45, ny = cos45;
-                    textX = (p1.x + p2.x)/2 + nx*(drawDia/2 + 40);
-                    textY = (p1.y + p2.y)/2 + ny*(drawDia/2 + 40);
+                    textX = (p1.x + p2.x)/2 + nx*(drawDia/2 + 35);
+                    textY = (p1.y + p2.y)/2 + ny*(drawDia/2 + 35);
                 }
 
                 const paddingH = 16;
